@@ -1,0 +1,27 @@
+
+import random
+
+def guess_number():
+    print("Pensez à un nombre entre 1 et 100.")
+    min_range = 1
+    max_range = 100
+    attempts = 0
+    
+    while True:
+        guess = random.randint(min_range, max_range)
+        print(f"Est-ce que le nombre auquel vous pensez est {guess}?")
+        response = input("Répondez par 'plus grand', 'plus petit', ou 'correct' : ").lower()
+        attempts += 1
+        
+        if response == "correct":
+            print(f"J'ai deviné votre nombre en {attempts} tentatives!")
+            break
+        elif response == "plus grand":
+            min_range = guess + 1
+        elif response == "plus petit":
+            max_range = guess - 1
+        else:
+            print("Je n'ai pas compris votre réponse. Veuillez réessayer.")
+
+if __name__ == "__main__":
+    guess_number()
